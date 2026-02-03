@@ -1,0 +1,16 @@
+[ req ]
+default_md = sha256
+prompt = no
+#req_extensions = req_ext
+distinguished_name = req_distinguished_name
+[ req_distinguished_name ]
+commonName = *.routerarchitects.com
+
+[ req_ext ]
+basicConstraints = CA:FALSE
+nsCertType = server
+nsComment = "Websocket Server Certificate"
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = none
+keyUsage = critical, digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth

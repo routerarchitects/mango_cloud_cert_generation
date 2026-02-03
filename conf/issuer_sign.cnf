@@ -1,0 +1,6 @@
+[issuer]
+basicConstraints = CA:TRUE
+nsComment = "Issuer CA "
+subjectKeyIdentifier = hash
+authorityKeyIdentifier  = keyid, issuer
+keyUsage = critical, cRLSign, digitalSignature, keyCertSign

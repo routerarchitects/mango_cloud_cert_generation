@@ -1,0 +1,28 @@
+[ req ]
+default_md = sha256
+prompt = no
+#req_extensions = req_ext
+distinguished_name = req_distinguished_name
+[ req_distinguished_name ]
+countryName = IN
+stateOrProvinceName = UP
+localityName = Noida
+organizationName = Router Architects
+organizationalUnitName  = openwifi
+[ req_ext ]
+basicConstraints = CA:FALSE
+nsCertType = client
+nsComment = "Local Test Client Certificate"
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = none
+keyUsage = critical, nonRepudiation, digitalSignature, keyEncipherment
+extendedKeyUsage = clientAuth
+
+# [client]
+# basicConstraints = CA:FALSE
+# nsCertType = client
+# nsComment = "Local Test Client Certificate"
+# subjectKeyIdentifier = hash
+# authorityKeyIdentifier = keyid,issuer
+# keyUsage = critical, nonRepudiation, digitalSignature, keyEncipherment
+# extendedKeyUsage = clientAuth

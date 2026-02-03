@@ -1,0 +1,9 @@
+#!/bin/bash -x
+
+CNF_DIR="$PWD/conf"
+OUTPUT_DIR="$PWD/output"
+
+ROOTCA_DIR=$OUTPUT_DIR/RootCA
+ISSUER_DIR=$OUTPUT_DIR/issuer
+CERT_GEN_DIR=$OUTPUT_DIR/cert_gen
+
