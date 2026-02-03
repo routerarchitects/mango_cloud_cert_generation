@@ -1,0 +1,8 @@
+[server]
+basicConstraints = CA:FALSE
+nsCertType = server
+nsComment = "Websocket Certificate "
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid:always,issuer:always
+keyUsage = critical, digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth
