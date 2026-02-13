@@ -19,49 +19,62 @@ These certificates are essential for securing communication between OpenWiFi com
 
 ## Steps to Generate Certificates
 **Update certificate subject fields**
-   Before running the scripts, update the subject fields to match your environment:
-   - Root CA: conf/rootca.cnf
-   - Issuer CA: conf/issuer.cnf
-   - Server cert: conf/server.cnf
 
-   Ensure values like commonName, countryName, and stateOrProvinceName are correct.
+   Before running the scripts, update the certificate subject fields to match your environment.
 
-1. **Create Root CA**
+   Verify these values are correct where applicable: `commonName`, `countryName`, `stateOrProvinceName` and `organizationName`.
+
+   Update the following files:
+   - Root CA: `conf/rootca.cnf`
+   - Issuer CA: `conf/issuer.cnf`
+   - Client certificate: `conf/client.cnf`
+
+
+ **Create Root CA**
    Run the script to generate the Root Certificate Authority:
    ```bash
    ./createRootCA.sh
    ```
 
-2. **Create Issuer CA**
+ **Create Issuer CA**
    Generate the Issuer CA signed by the Root CA:
    ```bash
    ./createIssuer.sh
    ```
 
-3. **Generate Server Certificate**
+ **Generate Server Certificate**
+
    Create the server's private key and certificate:
+
+   Make sure `commonName` is set to your actual domain name in: `conf/server.cnf`
    ```bash
    ./createServerCerts.sh
    ```
 
-4. **Update Client ID**
-   Edit `createClientCerts.sh` to set a unique `clientID` and update the `commonName` in the `.cnf` file to match the client ID (e.g., `commonName = <ClientID>`).
+ **Generate Client Certificate**
 
+   Generate the client's private key and certificate.
 
-5. **Generate Client Certificate**
-   Generate the client's private key and certificate. Make sure clientId should 12 chars or a valid MAC:
+   `client_id` must be exactly 12 characters (for example, `aabbccddeeff`):
    ```bash
-   ./createClientCerts.sh
+   ./createClientCerts.sh <client_id>
    ```
 
-6. **Transfer Server Certificate**
+ **Transfer Server Certificate**
    Transfer server certifcates:
    ```bash
    ./transfer_server_certificates.sh
    ```
 
-7. **Transfer Client Certificate**
+ **Transfer Client Certificate**
    Transfer client certifcates:
    ```bash
    ./transfer_client_certificates.sh
    ```
+   **Note:**
+   The client certificates will be placed on the device as operational.pem, operational.ca and key.pem.
+
+   If you are using a client firmware version earlier than 4.0, rename the files as follows:
+
+   - operational.pem -> cert.pem
+   - operational.ca  -> cas.pem
