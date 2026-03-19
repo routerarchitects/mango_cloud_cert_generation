@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 # Purpose: Generate a client certificate signed by the Issuer CA.
 
 source ./env.sh
@@ -41,7 +41,7 @@ openssl x509 -req -in "$CL_PUB" \
   -out "$CL_CERT" \
   -extfile "$CNF_DIR/client_sign.cnf" \
   -extensions client \
-  -days 365
+  -days $CERT_VALIDITY_DAYS
 
 # Display the details of the generated client certificate.
 openssl x509 -in "$CL_CERT" -text

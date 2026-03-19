@@ -21,7 +21,7 @@ openssl x509 -req -in requests/server.csr \
   -out certs/server-cert.pem \
   -extfile $CNF_DIR/server_sign.cnf \
   -extensions server \
-  -days 365
+  -days $CERT_VALIDITY_DAYS
 # Display the details of the generated server certificate.
 openssl x509 -in certs/server-cert.pem -text
 
