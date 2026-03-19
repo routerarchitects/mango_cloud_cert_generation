@@ -18,11 +18,14 @@ sudo apt-get install openssl
 ```
 
 ## Steps to Generate Certificates
-### Set the required environment variable in env.sh:
+### Set the required environment variables in env.sh:
 Example:
 ```
-CERT_VALIDITY_DAYS=7300
+CA_CERT_VALIDITY_DAYS=7300
+LEAF_CERT_VALIDITY_DAYS=825
 ```
+`CA_CERT_VALIDITY_DAYS` is used for Root CA and Issuer CA certificates.
+`LEAF_CERT_VALIDITY_DAYS` is used for Server and Client certificates.
 ### Update certificate subject fields
 
 Before running the scripts, update the certificate subject fields to match your environment.

@@ -5,7 +5,7 @@ prompt = no
 distinguished_name = req_distinguished_name
 [ req_distinguished_name ]
 #Replace *.example.com with your real domain (e.g., *.yourdomain.com)
-commonName = *.routerarchitects.com
+commonName = *.example.com
 
 [ req_ext ]
 basicConstraints = CA:FALSE

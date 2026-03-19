@@ -22,4 +22,4 @@ openssl x509 -req -in requests/issuer.csr \
   -out certs/issuer-cert.pem \
   -extfile $CNF_DIR/issuer_sign.cnf \
   -extensions issuer \
-  -days $CERT_VALIDITY_DAYS
+  -days $CA_CERT_VALIDITY_DAYS
