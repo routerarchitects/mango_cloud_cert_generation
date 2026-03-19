@@ -49,6 +49,10 @@ copy_file() {
 # Combine Root CA and Issuer CA into clientcas.pem
 cat "$SOURCE_PATH/RootCA/certs/cacert.pem" "$SOURCE_PATH/issuer/certs/issuer-cert.pem" > /tmp/clientcas.pem
 # Copy combined file to the destination
+
+#copy_file "/tmp/clientcas.pem" "$DEST_PATH/cas.pem"
+#copy_file "$SOURCE_PATH/cert_gen/certs/client-cert-${CLIENT_ID}.pem" "$DEST_PATH/cert.pem"
+
 copy_file "/tmp/clientcas.pem" "$DEST_PATH/operational.ca"
 copy_file "$SOURCE_PATH/cert_gen/certs/client-cert-${CLIENT_ID}.pem" "$DEST_PATH/operational.pem"
 copy_file "$SOURCE_PATH/cert_gen/private/client-private-${CLIENT_ID}.pem" "$DEST_PATH/key.pem"
